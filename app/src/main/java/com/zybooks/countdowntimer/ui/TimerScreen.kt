@@ -74,7 +74,11 @@ fun TimerScreen(
          contentAlignment = Alignment.Center
       ) {
          // TODO: Add AnimatedTimeIndicator here
-         AnimatedTimeIndicator()
+         if (timerViewModel.isRunning) {
+            AnimatedTimeIndicator(
+               timeDuration = timerViewModel.totalMillis.toInt()
+            )
+         }
 
          Text(
             text = timerText(timerViewModel.remainingMillis),
